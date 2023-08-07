@@ -198,7 +198,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 886992568345365756, guid: 2eee35630f692481f81211e011908e80, type: 3}
       propertyPath: m_Name
-      value: Ball Red
+      value: Red Ball
       objectReference: {fileID: 0}
     - target: {fileID: 3303662993613933050, guid: 2eee35630f692481f81211e011908e80, type: 3}
       propertyPath: m_RootOrder
