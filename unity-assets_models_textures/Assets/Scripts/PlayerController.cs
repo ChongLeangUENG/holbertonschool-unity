@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         startPosition = transform.position; // Store the starting position
+ /*        timerScript = GetComponent<Timer>(); // Get the Timer script component */
     }
 
     private void Update()
