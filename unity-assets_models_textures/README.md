@@ -6,3 +6,6 @@ This project, one of a series dedicated to creating a prototype for a 3D platfor
 One of the key aspects you’ll learn in this project is interacting with Unity’s existing character controller components. To ensure a thorough understanding, you are barred from using free or paid assets from the Unity Asset Store or other sources for scripts. By emphasizing scripting, you gain the ability to create more flexible and optimized games.
 
 Throughout your development process, remember to frequently test your game and create development builds. While speed is essential, prioritize completing each task thoroughly before moving on to the next.
+
+
+Skyboxes: Farland Skies - Cloudy Crown https://assetstore.unity.com/packages/2d/textures-materials/sky/farland-skies-cloudy-crown-60004
