@@ -8,10 +8,12 @@ public class PlayerController : MonoBehaviour
     public float jumpForce = 10.0f;
     private Rigidbody rb;
     private bool isGrounded;
+    public Vector3 startPosition; // Store the starting position
 
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
+        startPosition = transform.position; // Store the starting position
     }
 
     private void Update()
@@ -31,6 +33,19 @@ public class PlayerController : MonoBehaviour
         {
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
         }
-        Debug.Log("Is Grounded: " + isGrounded);
+
+        // Check if player has fallen below a certain Y-position
+        if (transform.position.y < -10f) // Adjust this value as needed
+        {
+            // Respawn the player at the starting position
+            Respawn();
+        }
+    }
+
+    private void Respawn()
+    {
+        // Reset the player's position to the starting position
+        transform.position = startPosition;
+        rb.velocity = Vector3.zero; // Reset the player's velocity
     }
 }
