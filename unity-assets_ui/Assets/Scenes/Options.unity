@@ -1525,7 +1525,7 @@ GameObject:
   - component: {fileID: 1095150890}
   - component: {fileID: 1095150889}
   m_Layer: 5
-  m_Name: BGMText
+  m_Name: SFXText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
