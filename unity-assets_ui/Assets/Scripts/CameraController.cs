@@ -16,6 +16,7 @@ public class CameraController : MonoBehaviour
     {
         // Calculate the initial offset between the camera and the target
         offset = transform.position - target.position;
+        isInverted = PlayerPrefs.GetInt("isYAxisInverted", 0) == 1;
     }
 
     void LateUpdate()
