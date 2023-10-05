@@ -1,12 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
-    public GameObject pauseCanvas;  // Assign your PauseCanvas prefab in the Inspector.
-    private bool isPaused = false;  // Track whether the game is paused.
-    
+    public GameObject pauseCanvas;
+
+    private bool isPaused = false;
+
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -24,15 +24,33 @@ public class PauseMenu : MonoBehaviour
 
     public void Pause()
     {
-        pauseCanvas.SetActive(true);  // Activate the PauseCanvas.
-        Time.timeScale = 0f;  // Pause the game by setting the time scale to 0.
+        pauseCanvas.SetActive(true);
+        Time.timeScale = 0f;
         isPaused = true;
     }
 
     public void Resume()
     {
-        pauseCanvas.SetActive(false);  // Deactivate the PauseCanvas.
-        Time.timeScale = 1f;  // Resume the game by setting the time scale back to 1.
+        pauseCanvas.SetActive(false);
+        Time.timeScale = 1f;
         isPaused = false;
+    }
+
+    public void Restart()
+    {
+        Time.timeScale = 1f;  // Ensure the game isn't paused.
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);  // Reload the current scene.
+    }
+
+    public void MainMenu()
+    {
+        Time.timeScale = 1f;  // Ensure the game isn't paused.
+        SceneManager.LoadScene("MainMenu");  // Replace with your main menu scene name.
+    }
+
+    public void Options()
+    {
+        Time.timeScale = 1f;  // Ensure the game isn't paused.
+        SceneManager.LoadScene("Options");  // Replace with your options scene name.
     }
 }
