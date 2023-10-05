@@ -11,6 +11,7 @@ public class WinTrigger : MonoBehaviour
     public int fontSizeIncrease = 60; // Font size increase when winning
 
     private bool hasWon = false; // Flag to track if the player has won
+    public GameObject winCanvas; // Assign in the inspector
 
     private void OnTriggerEnter(Collider other)
     {
@@ -18,6 +19,9 @@ public class WinTrigger : MonoBehaviour
         {
             // Set the flag to prevent multiple wins
             hasWon = true;
+
+            winCanvas.SetActive(true);
+            Timer.Instance.Win(); // Assuming a singleton pattern for Timer
 
             // Stop the timer
             timerScript.enabled = false;
