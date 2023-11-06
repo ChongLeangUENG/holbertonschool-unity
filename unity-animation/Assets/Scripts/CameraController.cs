@@ -12,11 +12,14 @@ public class CameraController : MonoBehaviour
     public bool isInverted;
     public float sensitivity = 2.0f;  // Assume a given sensitivity value, adjust as needed.
 
+    private Quaternion initialRotation;  // Store the initial camera rotation.
+
     void Start()
     {
         // Calculate the initial offset between the camera and the target
         offset = transform.position - target.position;
         isInverted = PlayerPrefs.GetInt("isYAxisInverted", 0) == 1;
+        initialRotation = transform.rotation; // Store the initial camera rotation.
     }
 
     void LateUpdate()
@@ -29,6 +32,7 @@ public class CameraController : MonoBehaviour
         float horizontalInput = Input.GetAxis("Mouse X") * rotationSpeed;
         transform.RotateAround(target.position, Vector3.up, horizontalInput);
 
+        // Apply rotation to the camera only if the mouse is moved.
         float mouseX = Input.GetAxis("Mouse X");
         float mouseY = Input.GetAxis("Mouse Y");
 
@@ -43,6 +47,7 @@ public class CameraController : MonoBehaviour
 
         // Apply the rotation to the transform of the game object.
         transform.localRotation = Quaternion.AngleAxis(-rotationY, Vector3.right);
+        transform.rotation = initialRotation;  // Reset the camera's rotation to its initial state.
         transform.rotation *= Quaternion.AngleAxis(mouseX * sensitivity, transform.up);
     }
 
