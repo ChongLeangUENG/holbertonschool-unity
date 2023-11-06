@@ -43,7 +43,7 @@ public class CameraController : MonoBehaviour
 
         // Apply rotation to the camera.
         rotationY += mouseY * sensitivity;
-        rotationY = Mathf.Clamp(rotationY, -90, 90);  // Limit vertical rotation to prevent overturning.
+        rotationY = Mathf.Clamp(rotationY, -90, 90);  // Limit  vertical rotation to prevent overturning.
 
         // Apply the rotation to the transform of the game object.
         transform.localRotation = Quaternion.AngleAxis(-rotationY, Vector3.right);
